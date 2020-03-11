@@ -11,7 +11,11 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^0.1.2
 
-  clevertap_plugin: 1.0.0
+  clevertap_plugin: 1.1.0
+
+  firebase_messaging: ^6.0.12
+
+  flutter_local_notifications: ^0.7.1+1
 
 dev_dependencies:
   flutter_test:
@@ -19,3 +23,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+module:
+  androidX: true
