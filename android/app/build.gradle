@@ -62,8 +62,8 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation 'com.clevertap.android:clevertap-android-sdk:3.6.1'
-//    implementation 'com.google.firebase:firebase-messaging:17.3.4'//Mandatory for using FCM push notifications, skip if not using FCM
+    implementation 'com.clevertap.android:clevertap-android-sdk:3.6.4'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'//Mandatory for using FCM push notifications, skip if not using FCM
     implementation 'com.github.bumptech.glide:glide:4.9.0'//MANDATORY for App Inbox
 
     implementation 'com.google.android.exoplayer:exoplayer:2.8.4'
