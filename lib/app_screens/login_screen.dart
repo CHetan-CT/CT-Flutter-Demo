@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:clevertap_plugin/clevertap_plugin.dart';
 import 'package:ct_flutter_integration/app_screens/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -14,6 +15,25 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   Map<String, dynamic> profile = HashMap();
+
+  DateTime selectedDate = DateTime.now();
+  TextEditingController _date = new TextEditingController();
+  DateFormat dateFormat = DateFormat("yyyy-MM-dd");
+
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(1901, 1),
+        lastDate: DateTime.now());
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+//        profile['DOB'] = picked;
+        //dateFormat.format(picked);
+        _date.value = TextEditingValue(text: dateFormat.format(picked));
+      });
+  }
 
   @override
   Widget build(BuildContext ctx) {
@@ -89,6 +109,30 @@ class _LoginScreenState extends State<LoginScreen> {
                 profile['Phone'] = phone;
               });
             },
+          ),
+          const SizedBox(height: 16),
+          GestureDetector(
+            onTap: () => _selectDate(context),
+            child: AbsorbPointer(
+              child: TextField(
+                controller: _date,
+                keyboardType: TextInputType.datetime,
+                obscureText: false,
+                decoration: InputDecoration(
+                  hintText: 'Date of Birth',
+                  labelStyle: textStyle,
+                  prefixIcon: Icon(Icons.calendar_today),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(0.5),
+                  ),
+                ),
+                onChanged: (String phone) {
+                  setState(() {
+                    profile['Phone'] = phone;
+                  });
+                },
+              ),
+            ),
           ),
           const SizedBox(height: 16),
           Container(

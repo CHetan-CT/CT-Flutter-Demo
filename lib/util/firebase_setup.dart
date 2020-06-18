@@ -65,6 +65,7 @@ class FirebaseSetup {
       onMessage: (Map<String, dynamic> message) async {
         print('on message $message');
         log('on message $message');
+
 //        setState(() => _message = message["notification"]["title"]);
 
 //        CleverTapPlugin.showNotification(message);

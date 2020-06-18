@@ -14,7 +14,7 @@ import io.flutter.plugins.firebasemessaging.FlutterFirebaseMessagingService;
 public class MyFirebaseMessagingservice extends FlutterFirebaseMessagingService {
 
     @Override
-    public void onMessageReceived(RemoteMessage message){
+    public void onMessageReceived(RemoteMessage message) {
         try {
             if (message.getData().size() > 0) {
                 Bundle extras = new Bundle();
