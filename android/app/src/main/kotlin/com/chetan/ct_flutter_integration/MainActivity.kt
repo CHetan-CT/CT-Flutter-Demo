@@ -13,4 +13,17 @@ class MainActivity: FlutterActivity() {
         flutterEngine.plugins.add(FirebaseMessagingPlugin())
 //        flutterEngine.plugins.add(E2EPlugin())
     }
+
+    FirebaseInstanceId.getInstance().instanceId
+    .addOnCompleteListener(OnCompleteListener { task ->
+        if (!task.isSuccessful) {
+            Log.w(TAG, "getInstanceId failed", task.exception)
+            return@OnCompleteListener
+        }
+
+        val token = task.result?.token
+
+        clevertapDefaultInstance.pushFcmRegistrationId(token,true)
+
+    })
 }

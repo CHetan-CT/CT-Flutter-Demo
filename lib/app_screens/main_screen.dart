@@ -15,8 +15,25 @@ class _MainScreenState extends State<MainScreen> {
   TextEditingController eventNameController = TextEditingController();
   TextEditingController eventPropertyNameController = TextEditingController();
   TextEditingController eventPropertyValueController = TextEditingController();
-
   Map<String, dynamic> properties = HashMap();
+
+  CleverTapPlugin ctPlugin;
+
+  @override
+  void initState() {
+    ctPlugin = new CleverTapPlugin();
+
+    ctPlugin.setCleverTapDisplayUnitsLoadedHandler(handler);
+
+    super.initState();
+  }
+
+  void handler(List<dynamic> displayUnitList) {
+    this.setState(() async {
+      List displayUnits = await CleverTapPlugin.getAllDisplayUnits();
+      print("Display Units = " + displayUnits.toString());
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
