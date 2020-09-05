@@ -1,17 +1,6 @@
 package com.chetan.ct_flutter_integration;
 
-import android.os.Bundle;
-import android.util.Log;
-
-import com.clevertap.android.sdk.CleverTapAPI;
-import com.clevertap.android.sdk.NotificationInfo;
-import com.google.firebase.messaging.RemoteMessage;
-
-import java.util.Map;
-
-import io.flutter.plugins.firebasemessaging.FlutterFirebaseMessagingService;
-
-public class MyFirebaseMessagingservice extends FlutterFirebaseMessagingService {
+public class MyFirebaseMessagingservice {/*extends FlutterFirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage message) {
@@ -33,5 +22,5 @@ public class MyFirebaseMessagingservice extends FlutterFirebaseMessagingService 
         } catch (Throwable t) {
             Log.d("MYFCMLIST", "Error parsing FCM message", t);
         }
-    }
+    }*/
 }
